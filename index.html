@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Objection Crusher AI</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Inter', 'sans-serif']
+            },
+            boxShadow: {
+              soft: '0 10px 40px rgba(0, 0, 0, 0.35)'
+            },
+            backgroundImage: {
+              'brand-gradient': 'linear-gradient(135deg, #6366F1 0%, #8B5CF6 100%)'
+            }
+          }
+        }
+      };
+    </script>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="min-h-screen bg-neutral-950 text-neutral-100 antialiased">
+    <div class="mx-auto max-w-7xl p-4 sm:p-6 lg:p-8">
+      <main class="grid gap-5 lg:grid-cols-2">
+        <section
+          class="rounded-xl border border-neutral-800 bg-neutral-900/70 p-5 shadow-soft backdrop-blur-sm sm:p-6"
+        >
+          <header class="mb-6 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+              <div class="flex h-10 w-10 items-center justify-center rounded-xl bg-brand-gradient">
+                <svg
+                  viewBox="0 0 24 24"
+                  class="h-5 w-5"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                >
+                  <path d="M12 3v18M3 12h18" />
+                  <path d="m18 6-12 12" />
+                </svg>
+              </div>
+              <div>
+                <h1 class="text-lg font-bold tracking-tight sm:text-xl">Objection Crusher AI</h1>
+                <p class="text-sm text-neutral-400">Craft high-converting responses instantly</p>
+              </div>
+            </div>
+
+            <button
+              type="button"
+              aria-label="User profile"
+              class="flex h-10 w-10 items-center justify-center rounded-xl border border-neutral-700 bg-neutral-800 text-neutral-300 transition hover:border-neutral-500 hover:text-white"
+            >
+              <svg
+                viewBox="0 0 24 24"
+                class="h-5 w-5"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+              >
+                <path d="M20 21a8 8 0 1 0-16 0" />
+                <circle cx="12" cy="7" r="4" />
+              </svg>
+            </button>
+          </header>
+
+          <form id="objection-form" class="space-y-4" novalidate>
+            <div>
+              <label for="product-name" class="mb-1.5 block text-sm font-medium text-neutral-300">Product Name</label>
+              <input
+                id="product-name"
+                name="productName"
+                type="text"
+                required
+                placeholder="e.g., Velocity CRM"
+                class="w-full rounded-xl border border-neutral-700 bg-neutral-950 px-3.5 py-3 text-sm text-neutral-100 placeholder:text-neutral-500 focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500/30"
+              />
+            </div>
+
+            <div>
+              <label for="product-price" class="mb-1.5 block text-sm font-medium text-neutral-300">Product Price</label>
+              <input
+                id="product-price"
+                name="productPrice"
+                type="text"
+                required
+                placeholder="e.g., $49/month"
+                class="w-full rounded-xl border border-neutral-700 bg-neutral-950 px-3.5 py-3 text-sm text-neutral-100 placeholder:text-neutral-500 focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500/30"
+              />
+            </div>
+
+            <div>
+              <label for="usp" class="mb-1.5 block text-sm font-medium text-neutral-300">USP / Key Benefit</label>
+              <textarea
+                id="usp"
+                name="usp"
+                rows="2"
+                required
+                placeholder="e.g., Automates follow-ups and saves sales teams 8+ hours weekly"
+                class="w-full resize-none rounded-xl border border-neutral-700 bg-neutral-950 px-3.5 py-3 text-sm text-neutral-100 placeholder:text-neutral-500 focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500/30"
+              ></textarea>
+            </div>
+
+            <div>
+              <label for="target-audience" class="mb-1.5 block text-sm font-medium text-neutral-300">Target Audience</label>
+              <input
+                id="target-audience"
+                name="targetAudience"
+                type="text"
+                required
+                placeholder="e.g., Early-stage SaaS founders"
+                class="w-full rounded-xl border border-neutral-700 bg-neutral-950 px-3.5 py-3 text-sm text-neutral-100 placeholder:text-neutral-500 focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500/30"
+              />
+            </div>
+
+            <div>
+              <label for="objection-category" class="mb-1.5 block text-sm font-medium text-neutral-300">Objection Category</label>
+              <select
+                id="objection-category"
+                name="objectionCategory"
+                required
+                class="w-full rounded-xl border border-neutral-700 bg-neutral-950 px-3.5 py-3 text-sm text-neutral-100 focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500/30"
+              >
+                <option value="Price">Price</option>
+                <option value="Trust">Trust</option>
+                <option value="Time/Procrastination">Time/Procrastination</option>
+                <option value="Feature Doubt">Feature Doubt</option>
+                <option value="Competitor Comparison">Competitor Comparison</option>
+              </select>
+            </div>
+
+            <button
+              id="generate-btn"
+              type="submit"
+              class="mt-2 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-brand-gradient px-4 py-3 font-semibold text-white shadow-lg shadow-indigo-500/20 transition hover:brightness-110 focus:outline-none focus:ring-2 focus:ring-indigo-500/40 disabled:cursor-not-allowed disabled:opacity-60"
+            >
+              <span class="btn-label">Crush the Objection</span>
+            </button>
+          </form>
+        </section>
+
+        <section
+          class="rounded-xl border border-neutral-800 bg-neutral-900/70 p-5 shadow-soft backdrop-blur-sm sm:p-6"
+        >
+          <header class="mb-4 flex items-center justify-between">
+            <h2 class="text-base font-semibold sm:text-lg">Generated Responses</h2>
+            <span class="rounded-xl border border-neutral-700 px-3 py-1 text-xs text-neutral-300">AI Assist</span>
+          </header>
+
+          <div id="output" class="space-y-4">
+            <div
+              id="placeholder"
+              class="flex min-h-[280px] items-center justify-center rounded-xl border border-dashed border-neutral-700 bg-neutral-950/60 p-6 text-center text-sm text-neutral-400"
+            >
+              Your AI-powered response will appear here...
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
